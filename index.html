@@ -1,0 +1,1017 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/exported.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="theme-font-montserrat theme-color-blue-yellow" style="width: 100%; height: 100%;">
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 96px; height: auto;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<h1>Docker</h1>
+							<p>Запуск приложения на LAMP стеке одной командой</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 591px;">
+						<div class="sl-block-content" style="z-index: 12;">
+							<p>@poalrom</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 210px; height: 210px; left: 375px; top: 315px;">
+						<div class="sl-block-content" style="z-index: 13;">
+							<img style="" data-natural-width="200" data-natural-height="200" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389905/link_to_live.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<h1>About</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 526px; left: 354px; top: 274px;">
+						<div class="sl-block-content" style="z-index: 12; line-height: 1.69; text-align: left;" data-has-line-height="">
+							<p>Frontend разработчик в Яндексе</p>
+							<p>Наставник в HTMLAcademy</p>
+							<p>Фрилансер</p>
+							<p>Love DevOps</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 227px; height: 227px; left: 80px; top: 272px;">
+						<div class="sl-block-content" style="z-index: 13; border-width: 1px;" href="">
+							<img style="" data-natural-width="638" data-natural-height="638" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389390/3.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>План</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 210px;">
+						<div class="sl-block-content" style="z-index: 11; line-height: 1.69;" data-has-line-height="">
+							<ul>
+								<li class="fragment" data-fragment-index="0">
+									<span style="font-size:1.4em">Структура проекта</span>
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									<span style="font-size:1.4em">Настраиваем Docker</span>
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									<span style="font-size:1.4em">Один файл, чтобы править всеми</span>
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									<span style="font-size:1.4em">Q&amp;A</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<h1>Структура проекта</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 440px; top: 525px;">
+						<div class="sl-block-content fragment" style="z-index: 12; line-height: 0.936; color: rgb(255, 255, 255);"
+						 data-has-line-height="" data-fragment-index="3">
+							<h1>+</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 131px; height: 140px; left: 255px; top: 490px;">
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="2">
+							<img style="" data-natural-width="256" data-natural-height="274" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389450/yii-seeklogo.com.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 141px; height: 140px; left: 250px; top: 210px;">
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="0">
+							<img data-natural-width="800" data-natural-height="797" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389451/python-seeklogo.com.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 199px; height: 140px; left: 541px; top: 490px;">
+						<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="3">
+							<img data-natural-width="825" data-natural-height="581" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389453/mysql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 140px; height: 140px; left: 570px; top: 210px;">
+						<div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="1">
+							<img style="" data-natural-width="120" data-natural-height="120" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389455/pgsql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 80px; left: 440px; top: 245px;">
+						<div class="sl-block-content fragment" style="z-index: 17; line-height: 0.936; color: rgb(255, 255, 255);"
+						 data-has-line-height="" data-fragment-index="1">
+							<h1>+</h1>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>Структура проекта</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 131px; height: 140px; left: 415px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<img style="" data-natural-width="256" data-natural-height="274" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389450/yii-seeklogo.com.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 141px; height: 140px; left: 125px; top: 490px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 12;">
+							<img data-natural-width="800" data-natural-height="797" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389451/python-seeklogo.com.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 196px; height: 138px; left: 684px; top: 306px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 13;">
+							<img data-natural-width="825" data-natural-height="581" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389453/mysql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 125px; top: 140px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 14;">
+							<img style="" data-natural-width="120" data-natural-height="120" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389455/pgsql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 82px; height: 54px; left: 290px; top: 254px;">
+						<div class="sl-block-style" style="z-index: 15; transform: rotate(45deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 15;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 82px; height: 54px; left: 578px; top: 348px;">
+						<div class="sl-block-style" style="z-index: 17; transform: rotate(180deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 17;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 110px; height: 74px; left: 141px; top: 338px;">
+						<div class="sl-block-style" style="z-index: 18; transform: rotate(90deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 18;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 74 74">
+									<polygon points="74,22.2 37,22.2 37,0 0,37 37,74 37,51.8 74,51.8 74,22.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 82px; height: 54px; left: 290px; top: 442px;">
+						<div class="sl-block-style" style="z-index: 19; transform: rotate(315deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 19;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>Проблема</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 540px; height: 303px; left: 210px; top: 241px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0">
+							<img style="" data-natural-width="540" data-natural-height="303" data-lazy-loaded="" data-src="https://media0.giphy.com/media/VXJWhaO7afRe/giphy.gif" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>Окружения</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 80px; height: 80px; left: 130px; top: 560px;">
+						<div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0">
+							<img data-natural-width="128" data-natural-height="128" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389470/laptop.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 80px; height: 80px; left: 130px; top: 140px;">
+						<div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0">
+							<img data-natural-width="128" data-natural-height="128" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389470/laptop.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 80px; height: 80px; left: 130px; top: 350px;">
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+							<img data-natural-width="128" data-natural-height="128" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389470/laptop.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 213px; height: 213px; left: 344px; top: 277px;">
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1">
+							<img style="" data-natural-width="700" data-natural-height="700" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389476/gitlab.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 219px; height: 131px; left: 661px; top: 312px;">
+						<div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="2">
+							<img style="" data-natural-width="2000" data-natural-height="1197" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389478/aws.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 82px; height: 54px; left: 548px; top: 350px;">
+						<div class="sl-block-style" style="z-index: 16; transform: rotate(180deg);">
+							<div class="sl-block-content fragment" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 16;" data-fragment-index="2">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 82px; height: 54px; left: 249px; top: 217px;">
+						<div class="sl-block-style" style="z-index: 18; transform: rotate(45deg);">
+							<div class="sl-block-content fragment" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 18;" data-fragment-index="1">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 82px; height: 54px; left: 249px; top: 350px;">
+						<div class="sl-block-style" style="z-index: 19; transform: rotate(360deg);">
+							<div class="sl-block-content fragment" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 19;" data-fragment-index="1">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 82px; height: 54px; left: 249px; top: 485px;">
+						<div class="sl-block-style" style="z-index: 20; transform: rotate(315deg);">
+							<div class="sl-block-content fragment" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 20;" data-fragment-index="1">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<h1>Начинаем с малого</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 480px; left: 400px; top: 331px;">
+						<div class="sl-block-content fragment" style="z-index: 12; line-height: 1.69;" data-has-line-height=""
+						 data-fragment-index="0">
+							<p>Устанавливаем Docker</p>
+							<p>https://docs.docker.com/install/</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 210px; height: 210px; left: 110px; top: 280px;">
+						<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 922px; height: 751px; left: 38px; top: -25px;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<img style="" data-natural-width="1658" data-natural-height="1350" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389508/dockerfile-www.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 45px; left: 68px; top: 32px;">
+						<div class="sl-block-style" style="z-index: 12; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 12;" data-fragment-index="0">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 45">
+									<rect width="862" height="45" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 77px; left: 68px; top: 76px;">
+						<div class="sl-block-style" style="z-index: 13; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 13;" data-fragment-index="1">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 77">
+									<rect width="862" height="77" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 59px; left: 68px; top: 151px;">
+						<div class="sl-block-style" style="z-index: 14; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 14;" data-fragment-index="2">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 59">
+									<rect width="862" height="59" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 57px; left: 68px; top: 209px;">
+						<div class="sl-block-style" style="z-index: 15; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 15;" data-fragment-index="3">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 57">
+									<rect width="862" height="57" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 116px; left: 68px; top: 264px;">
+						<div class="sl-block-style" style="z-index: 16; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 16;" data-fragment-index="4">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 116">
+									<rect width="862" height="116" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 40px; left: 68px; top: 378px;">
+						<div class="sl-block-style" style="z-index: 17; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 17;" data-fragment-index="5">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 40">
+									<rect width="862" height="40" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 40px; left: 68px; top: 416px;">
+						<div class="sl-block-style" style="z-index: 18; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 18;" data-fragment-index="6">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 40">
+									<rect width="862" height="40" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 59px; left: 68px; top: 453px;">
+						<div class="sl-block-style" style="z-index: 19; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 19;" data-fragment-index="7">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 59">
+									<rect width="862" height="59" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 77px; left: 68px; top: 510px;">
+						<div class="sl-block-style" style="z-index: 20; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 20;" data-fragment-index="8">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 77">
+									<rect width="862" height="77" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 40px; left: 68px; top: 586px;">
+						<div class="sl-block-style" style="z-index: 21; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 21;" data-fragment-index="9">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 40">
+									<rect width="862" height="40" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 862px; height: 40px; left: 68px; top: 626px;">
+						<div class="sl-block-style" style="z-index: 22; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 22;" data-fragment-index="10">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 862 40">
+									<rect width="862" height="40" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<h1>Структура проекта</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 141px; height: 140px; left: 125px; top: 490px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 13;">
+							<img data-natural-width="800" data-natural-height="797" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389451/python-seeklogo.com.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 196px; height: 138px; left: 684px; top: 306px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 14;">
+							<img data-natural-width="825" data-natural-height="581" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389453/mysql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 125px; top: 140px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 15;">
+							<img style="" data-natural-width="120" data-natural-height="120" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389455/pgsql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 290px; top: 254px;">
+						<div class="sl-block-style" style="z-index: 16; transform: rotate(45deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 16;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 578px; top: 348px;">
+						<div class="sl-block-style" style="z-index: 17; transform: rotate(180deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 17;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 110px; height: 74px; left: 141px; top: 338px;">
+						<div class="sl-block-style" style="z-index: 18; transform: rotate(90deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 18;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 74 74">
+									<polygon points="74,22.2 37,22.2 37,0 0,37 37,74 37,51.8 74,51.8 74,22.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 290px; top: 442px;">
+						<div class="sl-block-style" style="z-index: 19; transform: rotate(315deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 19;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 140px; height: 140px; left: 411px; top: 305px;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>С базой всё проще</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 806px; height: 312px; left: 77px; top: 194px;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<img data-natural-width="1488" data-natural-height="576" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389537/dockerfile-www-db.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 46px; left: 112px; top: 269px;">
+						<div class="sl-block-style" style="z-index: 12; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 12;" data-fragment-index="0">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 46">
+									<rect width="735" height="46" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 119px; left: 112px; top: 315px;">
+						<div class="sl-block-style" style="z-index: 14; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 14;" data-fragment-index="1">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 119">
+									<rect width="735" height="119" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 12;">
+							<h1>Структура проекта</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 141px; height: 140px; left: 125px; top: 490px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 13;">
+							<img data-natural-width="800" data-natural-height="797" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389451/python-seeklogo.com.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 125px; top: 140px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 15;">
+							<img style="" data-natural-width="120" data-natural-height="120" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389455/pgsql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 290px; top: 254px;">
+						<div class="sl-block-style" style="z-index: 16; transform: rotate(45deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 16;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 578px; top: 348px;">
+						<div class="sl-block-style" style="z-index: 17; transform: rotate(180deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 17;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 110px; height: 74px; left: 141px; top: 338px;">
+						<div class="sl-block-style" style="z-index: 18; transform: rotate(90deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 18;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 74 74">
+									<polygon points="74,22.2 37,22.2 37,0 0,37 37,74 37,51.8 74,51.8 74,22.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 290px; top: 442px;">
+						<div class="sl-block-style" style="z-index: 19; transform: rotate(315deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 19;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 411px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 712px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 20;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 12;">
+							<h1>Запускаем</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 736px; height: 58px; left: 112px; top: 304px;">
+						<div class="sl-block-style" style="z-index: 13; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 13;" data-fragment-index="0">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 736 58">
+									<rect width="736" height="58" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 736px; height: 63px; left: 112px; top: 380px;">
+						<div class="sl-block-style" style="z-index: 14; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 14;" data-fragment-index="1">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 736 63">
+									<rect width="736" height="63" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 806px; height: 289px; left: 77px; top: 228px;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<img style="" data-natural-width="1488" data-natural-height="534" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5408313/carbon__1_.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<h1>А можно проще?</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 720px; left: 80px; top: 210px;">
+						<div class="sl-block-content" style="z-index: 12; text-align: center; font-size: 120%; line-height: 1.82;"
+						 data-has-line-height="">
+							<ul>
+								<li class="fragment" data-fragment-index="0">Bash скрипт</li>
+								<li class="fragment" data-fragment-index="2">Docker-compose</li>
+							</ul>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 318px; top: 245px;">
+						<div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="223" data-line-y2="200"
+						 data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;"
+						 data-fragment-index="1">
+							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="223" height="1"
+							 viewBox="0 200 223 1">
+								<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="200" x2="223" y2="200"></line>
+								<line stroke="#ffffff" stroke-width="2" x1="0" y1="200" x2="223" y2="200"></line>
+							</svg>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 671px; left: 145px; top: 401px;">
+						<div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="3">
+							<p>https://docs.docker.com/compose/overview/</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>Docker-compose</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 806px; height: 494px; left: 77px; top: 140px;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<img data-natural-width="1488" data-natural-height="912" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389571/docker-compose-site.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 24px; left: 112px; top: 215px;">
+						<div class="sl-block-style" style="z-index: 12; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 12;" data-fragment-index="0">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 24">
+									<rect width="735" height="24" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 137px; left: 112px; top: 261px;">
+						<div class="sl-block-style" style="z-index: 13; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 13;" data-fragment-index="1">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 137">
+									<rect width="735" height="137" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 137px; left: 112px; top: 421px;">
+						<div class="sl-block-style" style="z-index: 15; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 15;" data-fragment-index="2">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 137">
+									<rect width="735" height="137" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>Запускаем #2</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 277px; height: 346px; left: 342px; top: 354px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0">
+							<img style="" data-natural-width="480" data-natural-height="600" data-lazy-loaded="" data-src="https://media3.giphy.com/media/l2Sq5GffrCyUMEXjW/giphy.gif" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 806px; height: 176px; left: 77px; top: 181px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 12;">
+							<img data-natural-width="1488" data-natural-height="324" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389889/docker-compose-up.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>Добавляем скрипты</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 806px; height: 517px; left: 77px; top: 116px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<img data-natural-width="1488" data-natural-height="954" style="" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389589/docker-compose-scripts.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 25px; left: 112px; top: 327px;">
+						<div class="sl-block-style" style="z-index: 13; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 13;" data-fragment-index="0">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 25">
+									<rect width="735" height="25" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<h1>Структура проекта</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 100px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 12;">
+							<img style="" data-natural-width="120" data-natural-height="120" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389455/pgsql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 578px; top: 348px;">
+						<div class="sl-block-style" style="z-index: 13; transform: rotate(180deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 13;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 411px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 712px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 15;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 279px; top: 348px;">
+						<div class="sl-block-style" style="z-index: 16;">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 16;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>Заканчиваем</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 806px; height: 267px; left: 77px; top: 193px;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<img style="" data-natural-width="1488" data-natural-height="492" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389742/dockerfile-ivs_db.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 806px; height: 176px; left: 77px; top: 430px;">
+						<div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="3">
+							<img style="" data-natural-width="1488" data-natural-height="324" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389745/restore-pgsql.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 26px; left: 112px; top: 268px;">
+						<div class="sl-block-style" style="z-index: 13; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 13;" data-fragment-index="0">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 26">
+									<rect width="735" height="26" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 26px; left: 112px; top: 313px;">
+						<div class="sl-block-style" style="z-index: 14; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 14;" data-fragment-index="1">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 26">
+									<rect width="735" height="26" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 735px; height: 26px; left: 112px; top: 359px;">
+						<div class="sl-block-style" style="z-index: 16; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 16;" data-fragment-index="2">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 735 26">
+									<rect width="735" height="26" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 885px; height: 792px; left: 38px; top: -46px;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<img style="" data-natural-width="1488" data-natural-height="1332" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389751/docker-compose-final.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 807px; height: 174px; left: 77px; top: 462px;">
+						<div class="sl-block-style" style="z-index: 12; opacity: 0.3;">
+							<div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 0)"
+							 data-shape-stretch="true" style="z-index: 12;" data-fragment-index="0">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none"
+								 viewBox="0 0 807 174">
+									<rect width="807" height="174" class="shape-element" fill="rgb(0, 255, 0)"></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 12;">
+							<h1>Структура проекта</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 578px; top: 348px;">
+						<div class="sl-block-style" style="z-index: 14; transform: rotate(180deg);">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 14;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 411px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 712px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 15;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="shape" style="width: 82px; height: 54px; left: 279px; top: 348px;">
+						<div class="sl-block-style" style="z-index: 16;">
+							<div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(255, 255, 255)"
+							 data-shape-stretch="false" style="z-index: 16;">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid"
+								 viewBox="0 0 54 54">
+									<polygon points="54,16.2 27,16.2 27,0 0,27 27,54 27,37.8 54,37.8 54,16.2" class="shape-element" fill="rgb(255, 255, 255)"></polygon>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 140px; height: 140px; left: 100px; top: 305px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389482/docker.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 22px; height: auto;">
+						<div class="sl-block-content" style="z-index: 10;">
+							<h1>Итого</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 140px;">
+						<div class="sl-block-content" style="z-index: 11; font-size: 130%; line-height: 1.69;" data-has-line-height="">
+							<ul>
+								<li class="fragment" data-fragment-index="0" style="text-align:left">Конфигурация рядом с проектом</li>
+								<li class="fragment" data-fragment-index="1" style="text-align:left">Монорепозиторий</li>
+								<li class="fragment" data-fragment-index="2" style="text-align:left">docker-compose up --build</li>
+								<li class="fragment" data-fragment-index="3" style="text-align:left">docker-compose down</li>
+							</ul>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 500px; height: 281px; left: 230px; top: 419px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="4">
+							<img style="" data-natural-width="500" data-natural-height="281" data-lazy-loaded="" data-src="https://media0.giphy.com/media/xUVnE1B5Xag1xTX6mm/giphy.gif" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="image" style="width: 80px; height: 80px; left: 80px; top: 350px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 11;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/4742068/telegram.svg" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 80px; height: 80px; left: 80px; top: 210px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 12;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/4742069/vk-social-network-logo.svg" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="width: 80px; height: 80px; left: 80px; top: 490px; min-width: 4px; min-height: 4px;">
+						<div class="sl-block-content" style="z-index: 13;">
+							<img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/4742071/mail-black-envelope-symbol.svg" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; width: 300px; left: 180px; top: 231px;">
+						<div class="sl-block-content" style="z-index: 14; text-align: left;">
+							<p>vk.com/poalrom</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; width: 300px; left: 180px; top: 371px;">
+						<div class="sl-block-content" style="z-index: 15; text-align: left;">
+							<p>@poalrom</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; width: 300px; left: 180px; top: 511px;">
+						<div class="sl-block-content" style="z-index: 16; text-align: left;">
+							<p>poalrom@yandex.ru</p>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 22px;">
+						<div class="sl-block-content" style="z-index: 17;">
+							<h1>Вопросы?</h1>
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 200px; height: 200px; left: 620px; top: 470px;">
+						<div class="sl-block-content" style="z-index: 18;">
+							<img style="" data-natural-width="200" data-natural-height="200" data-lazy-loaded="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/852237/images/5389796/qr.png" />
+						</div>
+					</div>
+					<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 363px; height: 272px; left: 539px; top: 182px;">
+						<div class="sl-block-content" style="z-index: 19;">
+							<img style="" data-natural-width="480" data-natural-height="360" data-lazy-loaded="" data-src="https://media3.giphy.com/media/xUOxfjsW9fWPqEWouI/giphy.gif" />
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			width: 960,
+			height: 700,
+			transition: "none",
+			backgroundTransition: "none",
+			center: false,
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
